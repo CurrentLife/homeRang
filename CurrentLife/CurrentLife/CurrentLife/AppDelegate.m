@@ -7,6 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "SWHomeViewController.h"
+#import "SWCirleViewController.h"
+#import "SWGuideViewController.h"
+#import "SWHostViewController.h"
+#import "SWToolsViewController.h"
+#import "SWHomePageController.h"
+#import "SWOnLiveController.h"
+#import "SWUSViewController.h"
+#import "SWShakeViewController.h"
+#import "SWTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,10 +26,62 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window =[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+          [self.window  makeKeyAndVisible];//显示
+    
+    //监听通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterMain) name:kNotificationGuideEnter object:nil];
+    
+    //第一次运行
+    BOOL flag =[[NSUserDefaults standardUserDefaults]boolForKey:kFirstLanuch];
+    if (flag) {
+        //进入到主视图
+        [self enterMain];
+    }
+    else{
+        //更改控制器
+        self.window.rootViewController =[[SWGuideViewController alloc]init];
+    }
     return YES;
 }
 
+
+
+//控制器接口
+- (void)enterMain{
+    //拿到Strotyboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //用于盛放tabbar的子控制器
+    NSMutableArray *tabBarArray = [NSMutableArray array];
+    
+    NSArray *controllers = @[@"SWHomeViewController",@"SWHostViewController",@"SWCirleViewController",@"SWToolsViewController",@"SWHomePageController",@"SWShakeViewController",@"SWOnLiveController",@"SWUSViewController"];
+    
+    for (NSString *vcName in controllers) {
+//        NSClassFromString()
+        Class vc = [story instantiateViewControllerWithIdentifier:vcName];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+        
+        [tabBarArray addObject:nav];
+        
+        
+    }
+    //实例化 TabBarController
+    SWTabBarController *tab = [[SWTabBarController alloc]init];
+    //设置tabbarController 所管理的所有控制器
+    tab.viewControllers = tabBarArray;
+    
+    self.window.rootViewController = tab;
+
+    
+}
+//删除通知
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

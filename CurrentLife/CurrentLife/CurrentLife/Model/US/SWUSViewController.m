@@ -1,27 +1,29 @@
 //
-//  ViewController.m
+//  SWUSViewController.m
 //  CurrentLife
 //
-//  Created by mac on 15/11/21.
+//  Created by mac on 15/11/23.
 //  Copyright © 2015年 itcast. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SWUSViewController.h"
 
-@interface ViewController ()
+@interface SWUSViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SWUSViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
+      self.titleLable.text = @"关于";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

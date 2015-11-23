@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  UIButton+SWButton.h
 //  CurrentLife
 //
-//  Created by mac on 15/11/21.
+//  Created by mac on 15/11/22.
 //  Copyright © 2015年 itcast. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface UIButton (SWButton)
+
 
 
 @end
-

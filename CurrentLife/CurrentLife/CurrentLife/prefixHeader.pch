@@ -1,0 +1,14 @@
+//
+//  prefixHeader.pch
+//  CurrentLife
+//
+//  Created by mac on 15/11/21.
+//  Copyright © 2015年 itcast. All rights reserved.
+//
+
+#ifndef prefixHeader_pch
+#define prefixHeader_pch
+
+
+#import "constant.h"
+#endif /* prefixHeader_pch */
