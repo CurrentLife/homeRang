@@ -7,7 +7,7 @@
 //
 
 #import "SWBaseViewController.h"
-
-@interface SWHomeViewController : SWBaseViewController
+#import "SWNavBaseController.h"
+@interface SWHomeViewController : SWNavBaseController
 
 @end

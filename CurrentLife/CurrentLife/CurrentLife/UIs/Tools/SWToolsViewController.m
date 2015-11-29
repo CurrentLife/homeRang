@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.titleLable.text =@"工具";
+    self.titleLable.textColor = [UIColor greenColor];
+    
+//    [SWAFHTTPClient getURL:@"http:www.qd-life.com /?anu=api/1/index/get_index_info" withParams:nil withSuccessBlock:^(id JSON) {
+//     
+//     } withFailedBlock:^(NSError *error) {
+//         
+//     }];
 }
 
 - (void)didReceiveMemoryWarning {

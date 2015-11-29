@@ -19,8 +19,8 @@
 @implementation SWBaseViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
-    //rgb设置随机颜色
-    self.view.backgroundColor = [UIColor colorWithRed:rand() % 255 / 255.0 green:rand() % 255 / 255.0 blue:rand() % 255 / 255.0 alpha:1.0];
+    //rgb设置随机颜色(arc4random())
+    self.view.backgroundColor = [UIColor colorWithRed:arc4random() % 255 / 255.0 green:arc4random() % 255 / 255.0 blue:arc4random() % 255 / 255.0 alpha:1.0];
     
 }
 -(void)showLoadView{
@@ -36,6 +36,7 @@
         HUD = nil;
     }
 }
+//Tost框架(提示框方法)
 -(void)showToast:(NSString *)message{
     [self.view  makeToast:message];
 }

@@ -11,4 +11,5 @@
 
 
 #import "constant.h"
+#import <AFNetworking.h>
 #endif /* prefixHeader_pch */

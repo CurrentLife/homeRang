@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-      self.titleLable.text = @"生活圈";
+    self.titleLable.textColor = [UIColor whiteColor];
+      self.titleLable.text = @"联系商家";
+
 }
 
 - (void)didReceiveMemoryWarning {

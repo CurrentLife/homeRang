@@ -17,9 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _navView =[[UIView alloc]initWithFrame:CGRectMake(0, 0,KUIScreenWidth,KUIScreenHeight)];
-    _navView.backgroundColor = [UIColor redColor];
+    _navView =[[UIView alloc]initWithFrame:CGRectMake(0, 0,KUIScreenWidth,KUInavBarHeight)];
+    _navView.backgroundColor = [UIColor brownColor];
     [self.view addSubview:_navView];
+    
     //左边按钮
     _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _leftBtn.frame = CGRectMake(0,kUIStatusBarHeight, KnavItemWidth, KnavItemWidth);
@@ -30,18 +31,21 @@
     _titleLable = [[UILabel alloc]initWithFrame:CGRectMake(KnavItemWidth, kUIStatusBarHeight,KUIScreenWidth - 2 * KnavItemWidth, KnavItemWidth)];
     _titleLable.text = @"首页";
     _titleLable.textAlignment = NSTextAlignmentCenter;
-    _titleLable.textColor =[UIColor blackColor];
+    _titleLable.textColor =[UIColor greenColor];
     _titleLable.font =[UIFont systemFontOfSize:19.0];
 //    [_titleLable sizeToFit];//不合适
     [_navView addSubview:_titleLable];
+   
+    
     //右边的登陆按钮
     _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [_rightBtn addTarget:self action:@selector(loginMethod) forControlEvents:UIControlEventTouchUpInside];
     [_navView addSubview:_rightBtn];
     
-    //判断是否登陆
-    if((NO)){
+    // 1>判断是否登陆
+    
+    if(/* DISABLES CODE */(NO)){
         
         _rightBtn.frame =CGRectMake(KUIScreenWidth -KnavItemWidth, kUIStatusBarHeight, KnavItemWidth, KnavItemWidth);
     [_rightBtn setImage:[UIImage imageNamed:@"nav_login"] forState:UIControlStateNormal];
@@ -51,7 +55,7 @@
     }
 
 }
-//隐藏系统的navBar 
+//  隐藏系统的navBar
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden =YES;

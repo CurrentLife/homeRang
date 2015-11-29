@@ -10,4 +10,5 @@
 
 @interface SWTabBarController : UITabBarController
 
+-(void)showOrHiddenTabBarView:(BOOL)flag;
 @end

@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.titleLable.text =@"圈子";
+    self.titleLable.textColor = [UIColor greenColor];
+    
+    //加载
+    [self showLoadView];
 }
 
 - (void)didReceiveMemoryWarning {

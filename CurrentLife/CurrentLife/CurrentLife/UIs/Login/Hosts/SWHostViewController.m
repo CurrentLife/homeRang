@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
      self.titleLable.text =@"热点";
+        self.titleLable.textColor = [UIColor greenColor];
 }
 
 

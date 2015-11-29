@@ -14,6 +14,7 @@
 @property(nonatomic, strong)UILabel * titleLable;
 @property(nonatomic, strong)UIButton * rightBtn;
 
--(void)backMethod;
--(void)loginMethod;
+//接口
+//-(void)backMethod;
+//-(void)loginMethod;
 @end

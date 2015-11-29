@@ -16,7 +16,9 @@
 #import "SWOnLiveController.h"
 #import "SWUSViewController.h"
 #import "SWShakeViewController.h"
-#import "SWTabBarController.h"
+#import "SWLoginViewController.h"
+#import "SWUserCenterController.h"
+
 
 @interface AppDelegate ()
 
@@ -40,7 +42,7 @@
         [self enterMain];
     }
     else{
-        //更改控制器
+        //更改 更控制器为SWGuideViewController
         self.window.rootViewController =[[SWGuideViewController alloc]init];
     }
     return YES;
@@ -67,12 +69,12 @@
         
         
     }
-    //实例化 TabBarController
-    SWTabBarController *tab = [[SWTabBarController alloc]init];
+    //实例化 TabBarController (使TabBarController 拿到所有需管理的控制器)
+   _tab = [[SWTabBarController alloc]init];
     //设置tabbarController 所管理的所有控制器
-    tab.viewControllers = tabBarArray;
+    _tab.viewControllers = tabBarArray;
     
-    self.window.rootViewController = tab;
+    self.window.rootViewController = _tab;
 
     
 }
@@ -82,6 +84,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
+
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

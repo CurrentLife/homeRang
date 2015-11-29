@@ -12,7 +12,9 @@
 @interface SWGuideViewController ()
 
 @end
-
+/*
+  初次登陆app，会加载此控制器
+ */
 @implementation SWGuideViewController
 
 - (void)viewDidLoad {
@@ -42,7 +44,7 @@
     
 }
 
-#pragma mark --跳转主控制器
+#pragma mark --手势监听方法 跳转到主控制器
 - (void)enter{
     //更改根控制器  bool
     //保存到偏好设置中 记录初次使用

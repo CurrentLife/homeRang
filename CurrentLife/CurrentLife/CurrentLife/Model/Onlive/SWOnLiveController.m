@@ -17,7 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+         self.titleLable.textColor = [UIColor whiteColor];
       self.titleLable.text = @"直播";
+
+
+//    [SWAFHTTPClient getURL:@"http:www.qd-life.com /?anu=api/1/index/get_index_info" withParams:nil withSuccessBlock:^(id JSON) {
+//        
+//    } withFailedBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

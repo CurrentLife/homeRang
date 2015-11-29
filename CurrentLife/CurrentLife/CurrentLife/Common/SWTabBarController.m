@@ -21,6 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*影藏系统tabBar*/
+    self.tabBar.hidden = YES;
+    
+    
     _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, KUIScreenHeight - kUITabBarHeight, KUIScreenWidth, kUITabBarHeight)];
     _bottomView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_bottomView];
@@ -44,6 +48,7 @@
         //默认选中第一个
         if(i == 0){
             btnItem.selected = YES;
+            
         }
         
         
@@ -62,31 +67,43 @@
     
     //设置topview 上的 button（比例系数添加原则）
     UIButton * homePageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    homePageBtn.frame = CGRectMake(0, 0, KUIScreenWidth * (123/640), KTabTOPViewHeight);
+    homePageBtn.frame = CGRectMake(5, 0, KUIScreenWidth * (130.0/640.0),/*必须为Float类型*/ KTabTOPViewHeight);
     
     [homePageBtn addTarget:self action:@selector(changeVC:) forControlEvents:UIControlEventTouchUpInside];
     
     [homePageBtn setTitle:@"联系商家" forState:UIControlStateNormal];
-    
+    homePageBtn.titleLabel.font = [UIFont systemFontOfSize:16.0];
+
+    [homePageBtn.titleLabel sizeToFit];
     homePageBtn.tag = 5;
     
     [_topView addSubview:homePageBtn];
+    
+   
     //摇一摇
+    UIButton *shakeBtn = [SWFactory type:0 withFrame:CGRectMake(KUIScreenWidth * (160.0/640.0),0, KUIScreenWidth * (180.0/640.0), KTabTOPViewHeight) withtitle:@"摇一摇" withTarget:self withAction:@selector(changeVC:)];
+    shakeBtn.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    
 
-    UIButton *shakeBtn = [SWFactory type:0 withFrame:CGRectMake(KUIScreenWidth * (150.0/640.0),0, KUIScreenWidth * (180.0/640.0), KTabTOPViewHeight) withtitle:@"摇一摇" withTarget:self withAction:@selector(changeVC:)];
      shakeBtn.tag = 6;
     
     [_topView addSubview:shakeBtn];
     
+   
     //直播
     UIButton *onliveBtn = [SWFactory type:0 withFrame:CGRectMake(KUIScreenWidth * (350.0/640.0), 0, KUIScreenWidth * (108.0/640.0), KTabTOPViewHeight) withtitle:@"直播" withTarget:self withAction:@selector(changeVC:)];
+
+    onliveBtn.titleLabel.font = [UIFont systemFontOfSize:16.0];
 //
-    onliveBtn.tag = 7;
+     onliveBtn.tag = 7;
     
     [_topView addSubview:onliveBtn];
 
+    
     //关于
-    UIButton *about = [SWFactory type:0 withFrame:CGRectMake(KUIScreenWidth * ((640-150)/640.0), 0, KUIScreenWidth * (150.0/640.0), KTabTOPViewHeight) withtitle:@"关于" withTarget:self withAction:@selector(changeVC:)];
+    UIButton *about = [SWFactory type:0 withFrame:CGRectMake(KUIScreenWidth * ((640-170)/640.0), 0, KUIScreenWidth * (150.0/640.0), KTabTOPViewHeight) withtitle:@"关于" withTarget:self withAction:@selector(changeVC:)];
+
+    about.titleLabel.font = [UIFont systemFontOfSize:16.0];
     
     about.tag = 8;
     
@@ -97,7 +114,7 @@
 
 
 
-#pragma  --按钮 点击方法
+#pragma  --按钮 点击方法（改变对应的button图片的状态）
 -(void)changeVC:(UIButton*)bt{
     _topView.hidden =YES;
     //取消所有选中
@@ -120,6 +137,17 @@
     } else{
         //第五个及其以后的需要更改
         self.selectedIndex = bt.tag - 1;
+    }
+    
+}
+
+#pragma mark -- 隐藏或显示
+-(void)showOrHiddenTabBarView:(BOOL)flag{
+    if (flag) {
+        _bottomView.hidden = YES;
+        _topView.hidden = YES;
+    }else{
+        _bottomView.hidden = NO;
     }
     
 }

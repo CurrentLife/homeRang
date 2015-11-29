@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="SWHeaderViewCell" selectionStyle="default" indentationWidth="10" rowHeight="131" id="KGk-i7-Jjw" customClass="SWHeaderViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-en-gkb" userLabel="carousel" customClass="iCarousel">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="3wM-at-s5C"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="LAE-Rq-tp9"/>
+                        </connections>
+                    </view>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXu-Dw-q9t">
+                        <rect key="frame" x="0.0" y="106" width="320" height="24"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="PVo-6b-d64"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12j-iH-CuI" userLabel="Viewarl">
+                        <rect key="frame" x="0.0" y="106" width="320" height="24"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oq4-LZ-Zeb">
+                                <rect key="frame" x="12" y="2" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-YX-1pn">
+                                <rect key="frame" x="269" y="-6" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oq4-LZ-Zeb" firstAttribute="centerY" secondItem="12j-iH-CuI" secondAttribute="centerY" id="FIG-2m-cFR"/>
+                            <constraint firstItem="oq4-LZ-Zeb" firstAttribute="leading" secondItem="12j-iH-CuI" secondAttribute="leading" constant="12" id="sJb-pK-m8m"/>
+                            <constraint firstAttribute="height" constant="24" id="uI7-1c-jBK"/>
+                            <constraint firstItem="SXI-YX-1pn" firstAttribute="centerY" secondItem="12j-iH-CuI" secondAttribute="centerY" id="vhi-pc-bk9"/>
+                            <constraint firstAttribute="trailing" secondItem="SXI-YX-1pn" secondAttribute="trailing" constant="12" id="weO-Ib-tLQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BGP-en-gkb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Rg-2p-GCU"/>
+                    <constraint firstItem="xXu-Dw-q9t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="I9i-Nf-P60"/>
+                    <constraint firstAttribute="trailing" secondItem="BGP-en-gkb" secondAttribute="trailing" id="Kb4-XZ-NWU"/>
+                    <constraint firstItem="12j-iH-CuI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OHL-EI-2sC"/>
+                    <constraint firstAttribute="bottom" secondItem="12j-iH-CuI" secondAttribute="bottom" id="Qns-8K-ICA"/>
+                    <constraint firstAttribute="bottom" secondItem="BGP-en-gkb" secondAttribute="bottom" id="R19-24-x6r"/>
+                    <constraint firstItem="BGP-en-gkb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rko-JA-ENT"/>
+                    <constraint firstAttribute="trailing" secondItem="xXu-Dw-q9t" secondAttribute="trailing" id="Wgr-UN-TXt"/>
+                    <constraint firstAttribute="bottom" secondItem="xXu-Dw-q9t" secondAttribute="bottom" id="hVg-vb-KJB"/>
+                    <constraint firstAttribute="trailing" secondItem="12j-iH-CuI" secondAttribute="trailing" id="kfK-yh-zMR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="LableText" destination="oq4-LZ-Zeb" id="FEG-EC-cSp"/>
+                <outlet property="carousel" destination="BGP-en-gkb" id="Yre-MJ-bM0"/>
+                <outlet property="page" destination="SXI-YX-1pn" id="qml-fp-yzP"/>
+            </connections>
+            <point key="canvasLocation" x="629" y="282.5"/>
+        </tableViewCell>
+    </objects>
+</document>
